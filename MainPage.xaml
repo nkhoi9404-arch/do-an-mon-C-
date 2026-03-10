@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="streetfood.MainPage">
+
+    <VerticalStackLayout
+        Padding="30"
+        Spacing="25"
+        VerticalOptions="Center"
+        HorizontalOptions="Center">
+
+        <Label
+            x:Name="titleLabel"
+            Text="Street Food Guide"
+            FontSize="28"
+            HorizontalOptions="Center" />
+
+        <Label
+            x:Name="infoLabel"
+            Text="Đang tìm vị trí của bạn..."
+            FontSize="18"
+            HorizontalOptions="Center" />
+
+    </VerticalStackLayout>
+
+</ContentPage>
