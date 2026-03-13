@@ -1,26 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="streetfood.MainPage">
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="streetfood.MainPage">
 
-    <VerticalStackLayout
-        Padding="30"
-        Spacing="25"
-        VerticalOptions="Center"
-        HorizontalOptions="Center">
+    <VerticalStackLayout Padding="20">
 
         <Label
             x:Name="titleLabel"
-            Text="Street Food Guide"
-            FontSize="28"
-            HorizontalOptions="Center" />
+            Text="Street Food Vinh Khanh"
+            FontSize="26"
+            HorizontalOptions="Center"/>
 
         <Label
             x:Name="infoLabel"
-            Text="Đang tìm vị trí của bạn..."
-            FontSize="18"
-            HorizontalOptions="Center" />
+            Text="Đang kiểm tra vị trí..."
+            FontSize="16"
+            Margin="0,10,0,10"/>
+
+        <CollectionView x:Name="shopList">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <Border Padding="10" Margin="5" StrokeThickness="1">
+
+                        <VerticalStackLayout>
+
+                            <Label
+                                Text="{Binding Name}"
+                                FontSize="18"
+                                FontAttributes="Bold"/>
+
+                            <Label
+                                Text="{Binding BestSeller}"
+                                FontSize="14"/>
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
 
     </VerticalStackLayout>
 

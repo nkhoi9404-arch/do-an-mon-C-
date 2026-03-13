@@ -14,7 +14,7 @@ public partial class MainPage : ContentPage
             Longitude = 106.7001,
             BestSeller = "Ốc rang muối",
             DescriptionVI = "Ốc Oanh là quán nổi tiếng tại phố ẩm thực Vĩnh Khánh. Món nổi bật là ốc rang muối.",
-            DescriptionEN = "Oc Oanh is a famous seafood restaurant in Vinh Khanh street. Best seller is salt roasted snails."
+            DescriptionEN = "Oc Oanh is a famous seafood restaurant in Vinh Khanh street."
         },
 
         new Shop
@@ -61,6 +61,7 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
+
     }
 
     protected override async void OnAppearing()
@@ -85,7 +86,7 @@ public partial class MainPage : ContentPage
         {
             var location = await Geolocation.Default.GetLocationAsync(
                 new GeolocationRequest(GeolocationAccuracy.Best));
-            await DisplayAlert("GPS", $"{location.Latitude} , {location.Longitude}", "OK");
+
             if (location == null)
                 return;
 
@@ -98,7 +99,7 @@ public partial class MainPage : ContentPage
                     shopLocation,
                     DistanceUnits.Kilometers);
 
-                if (distance < 1) // 50m
+                if (distance < 1)
                 {
                     ShowShopInfo(shop);
                     return;
