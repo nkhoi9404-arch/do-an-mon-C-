@@ -10,8 +10,8 @@ public partial class MainPage : ContentPage
         new Shop
         {
             Name = "Ốc Oanh",
-            Latitude = 10.7601,
-            Longitude = 106.7001,
+            Latitude = 10.760725,
+            Longitude = 106.703296,
             BestSeller = "Ốc rang muối",
             DescriptionVI = "Ốc Oanh là quán nổi tiếng tại phố ẩm thực Vĩnh Khánh. Món nổi bật là ốc rang muối.",
             DescriptionEN = "Oc Oanh is a famous seafood restaurant in Vinh Khanh street."
@@ -20,8 +20,8 @@ public partial class MainPage : ContentPage
         new Shop
         {
             Name = "Ốc Vũ",
-            Latitude = 10.7602,
-            Longitude = 106.7002,
+            Latitude = 10.761394,
+            Longitude = 106.702695,
             BestSeller = "Ốc tỏi nướng",
             DescriptionVI = "Ốc Vũ là quán ốc lâu đời tại quận 4.",
             DescriptionEN = "Oc Vu is a well-known seafood restaurant in district 4."
@@ -29,21 +29,21 @@ public partial class MainPage : ContentPage
 
         new Shop
         {
-            Name = "Thảo Ốc",
-            Latitude = 10.7603,
-            Longitude = 106.7003,
-            BestSeller = "Nghêu hấp",
-            DescriptionVI = "Thảo Ốc phục vụ nhiều loại hải sản tươi ngon.",
-            DescriptionEN = "Thao Oc serves many fresh seafood dishes."
+            Name = "Ốc Đào 2",
+            Latitude = 10.761173,
+            Longitude = 106.704948,
+            BestSeller = "răng mực sào bơ tỏi",
+            DescriptionVI = "Ốc Đào 2 phục vụ nhiều loại hải sản tươi ngon.",
+            DescriptionEN = "Ốc Đào 2  serves many fresh seafood dishes."
         },
 
         new Shop
         {
-            Name = "Ốc Sau Nổ",
-            Latitude = 10.7604,
-            Longitude = 106.7004,
-            BestSeller = "Ốc sốt trứng muối",
-            DescriptionVI = "Ốc Sau Nổ nổi tiếng với món ốc sốt trứng muối.",
+            Name = "Ốc Nhi 20k",
+            Latitude = 10.761283,
+            Longitude = 106.705973,
+            BestSeller = "Sò điệp nướng mỡ hành",
+            DescriptionVI = "Ốc Sau Nổ nổi tiếng với món Sò điệp nướng mỡ hành.",
             DescriptionEN = "Oc Sau No is famous for salted egg sauce snails."
         },
 
@@ -73,10 +73,16 @@ public partial class MainPage : ContentPage
         if (status == PermissionStatus.Granted)
         {
             await CheckLocation();
+
+            Device.StartTimer(TimeSpan.FromSeconds(5), () =>
+            {
+                _ = CheckLocation();
+                return true;
+            });
         }
         else
         {
-            infoLabel.Text = "Không có quyền GPS";
+            infoLabel.Text = "Khong co quyen GPS";
         }
     }
 
@@ -99,14 +105,14 @@ public partial class MainPage : ContentPage
                     shopLocation,
                     DistanceUnits.Kilometers);
 
-                if (distance < 1)
+                if (distance < 0.5)
                 {
                     ShowShopInfo(shop);
                     return;
                 }
             }
 
-            infoLabel.Text = "Bạn đang ở ngoài khu phố ẩm thực.";
+            infoLabel.Text = "Ban dang o ngoai khu pho am thuc";
         }
         catch (Exception ex)
         {
@@ -128,4 +134,3 @@ public partial class MainPage : ContentPage
         }
     }
 }
-// test update github
