@@ -13,4 +13,7 @@ public class Shop
     public string DescriptionEN { get; set; } = "";
 
     public string BestSeller { get; set; } = "";
+    public double Distance { get; set; }
+
+    public bool Popular { get; set; }
 }
