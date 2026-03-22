@@ -16,4 +16,5 @@ public class Shop
     public double Distance { get; set; }
 
     public bool Popular { get; set; }
+    public string DescriptionZH { get; set; } = "";
 }
